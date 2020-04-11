@@ -1,0 +1,11 @@
+{
+    "name": "svg custom",
+    "short_name": "svgcust",
+    "theme_color": "#002fa7",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "Scope": "/",
+    "start_url": "/",
+    "icons": [],
+    "splash_pages": null
+  }

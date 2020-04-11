@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <base href="/">
+    <title>Logo tester</title>
+    
+    <meta name="theme-color" content="#002FA7">
+    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.pathname %>/favicon.ico">
+
+    <style>
+      :root {
+        --elara-darkgray: #2f2f2f;
+        --elara-lightgray:#f2f2f2;
+        --elara-link: #2c3d00;
+        --elara-nav-background: #fff;
+        --elara-primary: #002FA7;;
+        --elara-secondary: #5E595D;
+        --elara-cta: #e8e8d4;
+        --elara-color: rgba(134, 156, 39, .8);
+        --elara-input-container: rgb(98, 110, 52);
+        --elara-input-focus: rgba(98, 110, 52, 0.7);
+        --elara-loader-background: rgba(255, 255, 255, .8);
+        --elara-highlight: #002FA7;
+        --elara-complementary: #5E595D;
+
+        --elara-background-color: #fff;
+        --elara-footer-color: #f5f5f5;
+        --elara-font-color: #2f2f2f;
+        --elara-font-hover: rgb(0, 0, 0, 0.3);
+        --elara-loader-background: rgba(255, 255, 255, 0.8);
+        --elara-light-background: rgba(255, 255, 255, 0.9);
+
+        --elara-font-primary: 'Andika', "Lucida Grande", Tahoma, Sans-serif;
+        --elara-font-display: 'Comfortaa', "Times New Roman", Times, serif;
+        --mdc-theme-primary: var(--elara-primary);
+        --mdc-theme-secondary: var(--elara-secondary);
+        --mdc-linear-progress-buffer-color: var(--elara-secondary);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--elara-primary);
+        cursor: pointer;
+      }
+
+      html {
+        height: 100%;  
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: var(--unsplash-bg);
+        background-color: var(--elara-background-color);
+        font-family: var(--elara-font-primary);
+        font-size: 16px;
+        background-position: center;
+        background-repeat: repeat;
+        background-size: cover;
+        height: 100%;
+      }
+
+      body.scrolling-disabled {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .handler {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 999;
+        opacity: .7;
+        background-color: var(--elara-loader-background);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        visibility: visible;
+        transition: opacity 1s;
+        user-select: none;
+        text-align: center;
+      }
+
+      .handler.hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .error-tree {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      button.continue, button.reload {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 1.5rem;
+        color: #424242;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: .8px;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        outline: none;
+        border: none;
+        user-select: none;
+        border-radius: 2px;
+        transition: all .3s ease-out;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+      }
+      button.continue {
+          background-color: var(--elara-secondary);
+          color: white;
+      }
+      button.reload {
+          background-color: var(--elara-primary);
+          color: white;
+      }
+
+      #loader {
+        margin: -45px -60px;
+        width: 120px;
+        height: 90px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+    </style>
+    <noscript>JavaScript is needed to use this website.</noscript>
+    <script defer src="<%= htmlWebpackPlugin.options.pathname %>/boot.js"></script>
+    <script defer src="<%= htmlWebpackPlugin.options.pathname %>/vendor/custom-elements.min.js"></script>
+    <script defer src="<%= htmlWebpackPlugin.options.pathname %>/vendor/web-animations-next-lite.min.js"></script>
+  </head>
+  <body>
+    <elara-app></elara-app>
+    <script>
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const oldEdge = userAgent.indexOf("edge") !== -1
+    
+    if(oldEdge){
+      throw new Error('Please upgrade your browser.');
+    }
+
+    WebFontConfig = {
+      'google': { 'families': [ 
+        'Andika:400,700',
+        'Comfortaa:400,700',
+        'Material+Icons&display=swap'
+        ] }
+    };
+    
+    function loadGFonts(){
+      const wf = document.createElement('script');
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      const s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    };
+
+    loadGFonts();
+    </script>
+  </body>
+</html>
