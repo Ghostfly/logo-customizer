@@ -222,7 +222,7 @@ export class HomeController extends Page {
                 <svg id="object" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200.08 46.78">
                     <defs><style>.text { fill: #003865; }</style></defs>
 
-                    <g data-object="Logotype">
+                    <g data-object="Logotype" style="pointer-events: bounding-box;">
                         <path data-child="B" d="M79.82,44.52h3.5c2.85,0,4.53,1.06,4.53,3.38a3,3,0,0,1-2.45,3V51c2,.3,3.3,1.43,3.3,3.36,0,2.67-1.91,4.05-5.11,4.05H79.82Zm3.12,6.1c2.84,0,4-.91,4-2.68s-1.24-2.58-3.84-2.58H80.78v5.26Zm.4,7c2.81,0,4.4-1,4.4-3.21,0-2-1.57-2.93-4.4-2.93H80.78v6.14Z" transform="translate(-22.53 -25.25)" />
                         <path data-child="e" d="M93.73,53.37a5.06,5.06,0,0,1,5-5.33c2.76,0,4.51,1.78,4.51,4.69a5,5,0,0,1-.05.77h-9v-.79h8.64l-.39.37c0-2.87-1.49-4.24-3.65-4.24a4.2,4.2,0,0,0-4.11,4.5,4.24,4.24,0,0,0,4.42,4.52,5.73,5.73,0,0,0,3.38-1.09l.39.71A6.54,6.54,0,0,1,99,58.67,5.08,5.08,0,0,1,93.73,53.37Z" transform="translate(-22.53 -25.25)" />
                         <path data-child="s" d="M108.54,57.07l.49-.68a6.89,6.89,0,0,0,4.57,1.48c2.05,0,3.11-.93,3.11-2,0-.91-.36-1.65-3.56-2.29-2.55-.52-4-1.35-4-2.84s1.24-2.7,3.94-2.7a7,7,0,0,1,3.87,1.25l-.5.67A5.69,5.69,0,0,0,113,48.84c-2.2,0-2.9.89-2.9,1.84s1,1.61,3.32,2.08c3.48.74,4.26,1.55,4.26,3.05s-1.51,2.86-4.17,2.86A8.57,8.57,0,0,1,108.54,57.07Z" transform="translate(-22.53 -25.25)" />
@@ -235,7 +235,7 @@ export class HomeController extends Page {
                         <path data-child="r" d="M214.56,48.15h1.65l.17,2.37h.05a5,5,0,0,1,4.26-2.62,4,4,0,0,1,1.92.42l-.44,1.77a4.75,4.75,0,0,0-1.79-.33c-1.4,0-2.75.75-3.83,2.82v5.8h-2Z" transform="translate(-22.53 -25.25)" />
                     </g>
 
-                    <g data-object="Pictogram">
+                    <g data-object="Pictogram" style="pointer-events: bounding-box;">
                         <path data-child="B" d="M50.16,46.59c-5.41,0-8.13,2.7-9.42,9.45H40.5c-4-10.47-18-7.88-18,6V72h39V61.22C61.53,52.08,56.57,46.59,50.16,46.59ZM39.53,70h-15V63.66C24.46,48,40.21,48.37,39.53,64Zm19,0h-17V62.86c0-18.26,17-17.92,17,0Z" transform="translate(-22.53 -25.25)" />
                         <polygon data-child="L" points="11.27 0 0 19.53 1.99 20.68 11.98 3.38 43.08 21.34 44.37 19.11 11.27 0" />
                         <path data-child="left-eye" d="M35.48,64.89c-.65,0-1,.45-1,1.18v1.72a1.28,1.28,0,0,0,2,0V66.07A1,1,0,0,0,35.48,64.89Z" transform="translate(-22.53 -25.25)" />
@@ -296,7 +296,7 @@ export class HomeController extends Page {
     }
 
     private name(item: SVGGElement, child: SVGPathElement | SVGPolygonElement){
-        return html`${item.getAttribute('data-object')} : ${child.getAttribute('data-child')}`;
+        return html`${item.getAttribute('data-object')} ${child.getAttribute('data-child') ? ':'+child.getAttribute('data-child') : ''}`;
     }
 }
 
